@@ -1,4 +1,4 @@
-public class gridSimulate extends Thread
+public class GridSimulate extends Thread
 {
 	public static void main(String[] args)
 	{
