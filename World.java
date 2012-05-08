@@ -1,10 +1,9 @@
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import java.awt.*;
-import java.awt.GridLayout;
-import java.util.Map;
 import javax.swing.ImageIcon;
+import java.awt.*;
+import java.util.Map;
 import java.util.Random;
 
 public class World extends JFrame {
