@@ -1,3 +1,5 @@
+
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -27,6 +29,12 @@ public class World extends JFrame {
     {
 		gridY = y;
     }
+
+    public Cowboy[] getCowboys() 
+    {
+    	return cowboys;
+    }
+
     protected static ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = World.class.getResource(path);
         if (imgURL != null) {
@@ -83,19 +91,17 @@ public class World extends JFrame {
     	numberOfCowboys++;
     }
 
-    public void move()
+    public void move(Cowboy cowboy, int newX, int newY)
     {
-    	Cowboy cb = cowboys[0];
-    	int x = cb.getX();
-    	int y = cb.getY();
+    
+    	int x = cowboy.getX();
+    	int y = cowboy.getY();
     	grid[x][y].removeAll();
-    	//grid[x][y].add(new JPanel());
-
-    	int newX = gen.nextInt(gridX);
-    	int newY = gen.nextInt(gridY);
-    	cb.setX(newX);
-    	cb.setY(newY);
-    	ImageIcon image = cb.getImage();
+    	
+    	cowboy.setX(newX);
+    	cowboy.setY(newY); 
+    	    	
+    	ImageIcon image = cowboy.getImage();
     	grid[newX][newY].add(new JLabel(image));
 
     	//System.out.println(cb);
