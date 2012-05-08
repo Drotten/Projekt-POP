@@ -1,4 +1,4 @@
-public class gridSimulate
+public class gridSimulate extends Thread
 {
 	public static void main(String[] args)
 	{
@@ -8,11 +8,14 @@ public class gridSimulate
 		
 		try {
 			ErlController erlListener = new ErlController();
-			erlListener.run();
+			Thread t = new Thread(erlListener.run());
+			t.start();
+			//erlListener.run();
 		} catch(Exception e)
 		{
-			System.out.println(":/");
+			System.out.println(e);
 		}
+                System.out.println("WOO!");
 		boolean run = true;
 		while (run)
 		{

@@ -2,7 +2,7 @@ import com.ericsson.otp.erlang.*;
 
 public class ErlController
 {
-	public void run() throws Exception
+	public String run() throws Exception
 	{
 		OtpNode myListeningNode = new OtpNode("server");
 
@@ -12,12 +12,12 @@ public class ErlController
 		OtpErlangTuple msg;
 		OtpErlangPid from;
 		OtpErlangObject command;
-		//OtpErlangAtom myAtom = new OtpErlangAtom("something");
 
 		while (true)
 		{
 			try
 			{
+                                System.out.println("WEE!");
 				object = myListeningMbox.receive();
 
 				msg = (OtpErlangTuple) object;
@@ -35,10 +35,10 @@ public class ErlController
 					System.out.println("MOVE!!!");
 				}
 
-
 			}catch(OtpErlangExit e)
 				{
 					System.out.println("error :P");
+					return "NOOOoooo...";
 				}
 		}
 	}
